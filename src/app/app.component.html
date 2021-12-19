@@ -1,0 +1,41 @@
+<header class="jumbotron ">
+    <div class="container">
+        <div class="row row-header">
+            <div class="col-12 col-sm-6">
+                <h1>Fundamental Concepts of FLAT Theory & Compiler Design</h1>
+                <p>Compiler design principles provide an in-depth view of translation and optimization process. Compiler design covers basic translation mechanism and error detection & recovery. It includes lexical, syntax, and semantic analysis as front end, and code generation and optimization as back-end.</p>
+            </div>
+            
+            <div class="col-12 col-sm-3 d-flex align-items-center">
+                    <button role="button" *ngIf="!this.s" (click)="fun()" id="reserve" class="btn nav-link btn-warning btn-block text-white"><strong>Provide Grammar</strong></button>
+                    <div *ngIf="this.s" class="input-group mb-3">
+                        <input type="text" class="form-control" [(ngModel)]="t"  placeholder="Enter no.of productions" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                      </div>
+                    </div>
+                    <div *ngIf="this.s" class="col-12 col-sm-3 d-flex align-items-center">
+                        <button role="button"  id="reserve" (click)="fun2()" class="btn nav-link btn-warning btn-block text-white"><strong>Submit</strong></button>
+                        </div>
+                    
+        </div>
+    </div>
+</header>
+<div class="container p-2">
+    <table class="table table-bordered table-hover">
+        <caption>Production Rules</caption>
+        <thead class="thead-dark">
+            <tr class="d-mx-auto table-danger">
+            <th scope="col" >Production LHS</th>
+            <th scope="col">Production RHS</th>
+            </tr>
+        </thead>
+            <tbody *ngFor="let t of arr">
+                <tr>
+                <td><input [(ngModel)]="t[0]"  type="text"></td>
+                <td><input [(ngModel)]="t[1]"   type="text"></td>
+                </tr>
+               
+            </tbody>
+    </table>
+    <button role="button"  id="reserve" (click)="fun4()" class="btn nav-link btn-warning btn-block text-white"><strong>Submit</strong></button>
+
+</div>
