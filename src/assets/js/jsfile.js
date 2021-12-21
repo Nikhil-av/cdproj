@@ -13,6 +13,22 @@ function calls(arr) {
      eleminatedRules = toPretty(eleminatedRules)
      return eleminatedRules
 }
+function calls2(arr) {
+    var d={}
+    for (var i = 0; i < arr.length; i++) {
+        kk=arr[i][1].split('/')
+        temp=[]
+        for (var j = 0; j < kk.length; j++) {
+            temp.push(kk[j].split(''))
+        }
+        d[arr[i][0]]=temp
+    }
+    productionRules=d;
+    let eleminatedRules = eliminateLeftRecursion(productionRules)
+    eleminatedRules = leftFactoring(productionRules)
+    eleminatedRules = toPretty(eleminatedRules)
+    return eleminatedRules
+}
 function calculateFirstFollow(arr) {
     var d={}
     for (var i = 0; i < arr.length; i++) {
@@ -27,7 +43,6 @@ function calculateFirstFollow(arr) {
     let eleLeftRecursion = eliminateLeftRecursion(productionRules)
     let eleLeftFactoring = leftFactoring(eleLeftRecursion)
     let nullable = calcNullables(eleLeftFactoring)
-    console.log(nullable)
     let First = calcFirsts(eleLeftFactoring, nullable)
     let Follow = calcFollows(eleLeftFactoring, nullable, First)
     return [First, Follow]

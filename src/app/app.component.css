@@ -1,3 +1,7 @@
+.body {
+  background-color: #000000 !important;
+}
+
 .row-header {
     margin: 0px auto;
     padding: 0px 0px; }
@@ -16,7 +20,7 @@
   .jumbotron {
     margin: 0px auto;
     padding: 70px 30px;
-    background: #9575CD;
+    background: black;
     color: floralwhite; }
   
   address {
@@ -82,5 +86,218 @@
         border-radius: 5px;
         border: 0;
         font-size: 18px;
+      }
+
+
+      body {
+        overflow: hidden;
+      }
+      
+
+      .glowing {
+        position: relative;
+        min-width: 700px;
+        height: 300px;
+        margin: -150px;
+        transform-origin: right;
+        animation: colorChange 5s linear infinite;
+      }
+      
+      .glowing:nth-child(even) {
+        transform-origin: left;
+      }
+      
+      @keyframes colorChange {
+        0% {
+          filter: hue-rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          filter: hue-rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+      .glowing span {
+        position: absolute;
+        top: calc(80px * var(--i));
+        left: calc(80px * var(--i));
+        bottom: calc(80px * var(--i));
+        right: calc(80px * var(--i));
+      }
+      
+      .glowing span::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -8px;
+        width: 15px;
+        height: 15px;
+        background: #f00;
+        border-radius: 50%;
+      }
+      
+      .glowing span:nth-child(3n + 1)::before {
+        background: rgba(134,255,0,1);
+        box-shadow: 0 0 20px rgba(134,255,0,1),
+          0 0 40px rgba(134,255,0,1),
+          0 0 60px rgba(134,255,0,1),
+          0 0 80px rgba(134,255,0,1),
+          0 0 0 8px rgba(134,255,0,.1);
+      }
+      
+      .glowing span:nth-child(3n + 2)::before {
+        background: rgba(255,214,0,1);
+        box-shadow: 0 0 20px rgba(255,214,0,1),
+          0 0 40px rgba(255,214,0,1),
+          0 0 60px rgba(255,214,0,1),
+          0 0 80px rgba(255,214,0,1),
+          0 0 0 8px rgba(255,214,0,.1);
+      }
+      
+      .glowing span:nth-child(3n + 3)::before {
+        background: rgba(0,226,255,1);
+        box-shadow: 0 0 20px rgba(0,226,255,1),
+          0 0 40px rgba(0,226,255,1),
+          0 0 60px rgba(0,226,255,1),
+          0 0 80px rgba(0,226,255,1),
+          0 0 0 8px rgba(0,226,255,.1);
+      }
+      
+      .glowing span:nth-child(3n + 1) {
+        animation: animate 10s alternate infinite;
+      }
+      
+      .glowing span:nth-child(3n + 2) {
+        animation: animate-reverse 3s alternate infinite;
+      }
+      
+      .glowing span:nth-child(3n + 3) {
+        animation: animate 8s alternate infinite; 
+      }
+      
+      @keyframes animate {
+        0% {
+          transform: rotate(180deg);
+        }
+        50% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      
+      @keyframes animate-reverse {
+        0% {
+          transform: rotate(360deg);
+        }
+        
+        50% {
+          transform: rotate(180deg);
+        }
+        
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        display: flex !important; 
+        justify-content: center !important;
+        align-items: center !important;
+        width: 80%;
+        min-height: 50vh;
+        overflow: hidden;
+      }      
+
+      .card__overlay {
+        position: absolute;
+        border-radius: 40px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        visibility: visible;
+        transition: .5s ease;
+        background-color: #000000;
+        background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+      }
+      .card:hover .card__overlay {
+        opacity: 10;
+      }
+      
+      .li{
+          margin:50px
+      }
+      
+      .cards-list {
+        z-index: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      
+      .card {
+        margin: 30px auto;
+        width: 600px;
+        height: 500px;
+        border-radius: 40px;
+      box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+        cursor: pointer;
+        transition: 0.4s;
+        font-family: 'Zen Tokyo Zoo', cursive;
+      }
+      
+      .card .card_image {
+        width: inherit;
+        height: inherit;
+        border-radius: 40px;
+        font-family: 'Zen Tokyo Zoo', cursive;
+      }
+      
+      .card .card_image img {
+        width: inherit;
+        height: inherit;
+        border-radius: 40px;
+        object-fit: cover;
+        font-family: 'Zen Tokyo Zoo', cursive;
+      }
+      
+      .card .card_title {
+        text-align: center;
+        border-radius: 0px 0px 40px 40px;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: -80px;
+        height: 40px;
+        font-family: 'Zen Tokyo Zoo', cursive;
+      }
+      
+      .card:hover {
+        transform: scale(0.9, 0.9);
+        box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+          -5px -5px 30px 15px rgba(0,0,0,0.22);
+          font-family: 'Zen Tokyo Zoo', cursive;
+      }
+      
+      .title-white {
+        color: white;
+        font-family: 'Zen Tokyo Zoo', cursive;
+      }
+      
+      .title-black {
+        color: black;
+        font-family: 'Zen Tokyo Zoo', cursive;
       }
       

@@ -1,27 +1,46 @@
 <header class="jumbotron ">
     <div class="container">
+        <div class="glowing">
+    
+            <span style="--i:1;"></span>
+            
+            <span style="--i:2;"></span>
+            
+            <span style="--i:3;"></span>
+            
+          </div>
         <div class="row row-header">
             <div class="col-12 col-sm-6">
-                <h1>Fundamental Concepts of FLAT Theory & Compiler Design</h1>
+                <h1>Fundamental Concepts of Compiler Design</h1>
                 <p>Compiler design principles provide an in-depth view of translation and optimization process. Compiler design covers basic translation mechanism and error detection & recovery. It includes lexical, syntax, and semantic analysis as front end, and code generation and optimization as back-end.</p>
             </div>
             
             <div class="col-12 col-sm-3 d-flex align-items-center">
-                    <button role="button" *ngIf="!this.s" (click)="fun()" id="reserve" class="btn nav-link btn-warning btn-block text-white"><strong>Provide Grammar</strong></button>
+                    <button role="button" *ngIf="!this.s" (click)="fun()" id="reserve" class="btn nav-link btn-warning btn-block text-white p-2"><strong>Provide Grammar</strong></button>
                     <div *ngIf="this.s" class="input-group mb-3">
-                        <input type="text" class="form-control" [(ngModel)]="t"  placeholder="Enter no.of productions" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <label for="noOfProduction">Enter number of production rules</label>
+                        <input id="noOfProduction"type="text" class="" [(ngModel)]="t"  placeholder="Enter no.of productions" aria-label="Recipient's username" aria-describedby="basic-addon2">
                       </div>
                     </div>
                     <div *ngIf="this.s" class="col-12 col-sm-3 d-flex align-items-center">
-                        <button role="button"  id="reserve" (click)="fun2()" class="btn nav-link btn-warning btn-block text-white"><strong>Submit</strong></button>
+                        <button role="button"  id="reserve" (click)="fun2()" class="btn nav-link btn-warning btn-block text-white p-2"><strong>Submit</strong></button>
                         </div>
                     
         </div>
     </div>
 </header>
-<div class="container p-2">
+<div class="glowing">
+    
+    <span style="--i:1;"></span>
+    
+    <span style="--i:2;"></span>
+    
+    <span style="--i:3;"></span>
+    
+  </div>
+<div class="container ttt m-2 p-2">
     <table class="table table-bordered table-hover">
-        <caption>Production Rules</caption>
+        <caption class="text-center">Production Rules</caption>
         <thead class="thead-dark">
             <tr class="d-mx-auto table-danger">
             <th scope="col" >Production LHS</th>
@@ -36,6 +55,44 @@
                
             </tbody>
     </table>
-    <button role="button"  id="reserve" (click)="fun4()" class="btn nav-link btn-warning btn-block text-white"><strong>Submit</strong></button>
 
+    <button role="button"  id="reserve" (click)="fun4()" class="btn d-block mx-auto nav-link btn-warning btn-block text-white m-3 p-2"><strong>Submit</strong></button>
+    <div class="d-flex flex-row justify-content-center p-2 w-15">
+        <button role="button" *ngIf="lrs" (click)="change1()" class="btn btn-dark text-white m-1 p-2">Left Recursion</button>
+        <button role="button" *ngIf="lfs" (click)="change2()" class="btn btn-dark text-white m-1 p-2">Left Factoring</button>
+        <button role="button" *ngIf="fir" (click)="change3()" class="btn btn-dark text-white m-1 p-2">First </button>
+        <button role="button" *ngIf="fol" (click)="change4()" class="btn btn-dark text-white m-1 p-2">Follow</button>
+        <button role="button" *ngIf="!lrs" (click)="change1()" class="btn btn-primary text-light m-1 p-2">Left Recursion</button>
+        <button role="button" *ngIf="!lfs" (click)="change2()" class="btn btn-primary text-light m-1 p-2">Left Factoring</button>
+        <button role="button" *ngIf="!fir" (click)="change3()" class="btn btn-primary text-light m-1 p-2">First</button>
+        <button role="button" *ngIf="!fol" (click)="change4()" class="btn btn-primary text-light m-1 p-2">Follow</button>
+    </div>
+      
+    
 </div>
+<div *ngIf="status">
+    <div class="row">
+      <div class="col m-3 row-cols-1 row-cols-md-5 ">
+        <div class="card 1 col d-flex justify-content-center">
+            <div class="card_image"> 
+              <img src="https://image.shutterstock.com/image-vector/question-mark-icon-comic-style-260nw-1279387300.jpg" width="100%" alt="No profile pic.." class="p-1"/> </div>
+              <div class="pyro">
+                <div class="before"></div>
+                <div class="after"></div>
+              </div>
+          <div class="card_title title-white"></div>
+          <!-- card overlay effect -->
+          <div  *ngIf="!ffs" class="card__overlay">
+            <div *ngFor="let f of tans" class="overlay__text mt-4" style="text-align: center;">
+                <h2 style="color: white;font-size:2em;font-weight:bolder;">{{f}}</h2>
+            </div>
+          </div>
+          <div class="card__overlay" *ngIf="ffs">
+            <div class="overlay__text mt-4" style="text-align: center;">
+                <h2 style="color: white;font-size:2em;font-weight:bolder;">{{ans}}</h2>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
