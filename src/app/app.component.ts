@@ -87,6 +87,7 @@ export class AppComponent {
     this.s=!this.s;
   }
   fun2(){
+    this.arr=[]
     for(var i=0;i<this.t;i++)
     this.arr.push([])
   }
